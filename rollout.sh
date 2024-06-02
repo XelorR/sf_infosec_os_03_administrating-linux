@@ -16,15 +16,14 @@ Components: main universe restricted multiverse
 Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 EOF
 	fi
+	# 2. update package manager
+	sudo apt update && sudo apt upgrade -y
+	# 3. install and run apache2
+	# 4. install python3
+	# 5. install and run ssh
+	sudo apt install -y apache2 python3-{pip,venv} ssh neovim git
 fi
-# 2. update package manager
-sudo apt update && sudo apt upgrade -y
-# 3. install and run apache2
-sudo apt install -y apache2
-# 4. install python3
-sudo apt install -y python3-{pip,venv}
-# 5. install and run ssh
-sudo apt install -y sshd
+
 # minimum 10 actions in total, including installation of everything needed for other tasks
 
 # install fish
@@ -65,6 +64,3 @@ elif [ "$ID_LIKE" = "arch" ]; then
 fi
 
 chsh -s /bin/fish
-
-# installing other useful apps
-sudo apt install -y git neovim
