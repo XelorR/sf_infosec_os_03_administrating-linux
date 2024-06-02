@@ -2,9 +2,9 @@
 
 # 1. check if backports repo enabled and enable if not
 if grep -qE '^Suites: noble noble-updates noble-backports' /etc/apt/sources.list.d/ubuntu.sources; then
-	echo "The 'release-backports' repository is enabled already."
+	echo "The 'backports' repository is enabled already."
 else
-	echo "The 'release-backports' repository is not enabled, adding."
+	echo "The 'backports' repository is not enabled, adding."
 	sudo cat <<EOF >/etc/apt/sources.list.d/backports.sources
 Types: deb
 URIs: http://archive.ubuntu.com/ubuntu
