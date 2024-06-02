@@ -16,6 +16,9 @@ fi
 # 2. update package manager
 sudo apt update && sudo apt upgrade -y
 # 3. install and run apache2
+sudo apt install -y apache2
 # 4. install python3
+sudo apt install -y python3-{pip,venv}
 # 5. install and run ssh
+sudo apt install -y sshd
 # minimum 10 actions in total, including installation of everything needed for other tasks
