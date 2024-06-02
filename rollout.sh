@@ -1,17 +1,17 @@
 #!/bin/bash
 
 # 1. check if backports repo enabled and enable if not
-if grep -q 'Suites: noble noble-updates noble-backports' /etc/apt/sources.list.d/ubuntu.sources; then
-	echo "The 'release-backports' repository is enabled."
+if grep -qE '^Suites: noble noble-updates noble-backports' /etc/apt/sources.list.d/ubuntu.sources; then
+	echo "The 'release-backports' repository is enabled already."
 else
-	echo "The 'release-backports' repository is not enabled."
-	# to enable
-	# add:
-	#   Types: deb
-	#   URIs: http://archive.ubuntu.com/ubuntu
-	#   Suites: noble noble-updates noble-backports
-	#   Components: main universe restricted multiverse
-	#   Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+	echo "The 'release-backports' repository is not enabled, adding."
+	sudo cat <<EOF >/etc/apt/sources.list.d/backports.sources
+Types: deb
+URIs: http://archive.ubuntu.com/ubuntu
+Suites: noble noble-updates noble-backports
+Components: main universe restricted multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+EOF
 fi
 # 2. update package manager
 sudo apt update && sudo apt upgrade -y
