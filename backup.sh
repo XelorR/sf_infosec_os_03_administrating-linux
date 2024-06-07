@@ -24,7 +24,7 @@ fi
 TIMESTAMP=$(date +%Y-%m-%d)
 
 # Create the backup. If repeated during the same day, save incremently
-tar cpNf "$BACKUP_DIR/backup-$TIMESTAMP.tar" $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS
+tar cpNf "$BACKUP_DIR/backup-$TIMESTAMP.tar" --directory / $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS
 
 # to do it conditionally from the script
 # crontab -e
