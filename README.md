@@ -3,6 +3,8 @@
 ## todo
 
 - [x] run apache
+- [ ] install and enable ftp
+- [ ] install and enable window manager and rdp
 - [ ] implement backup with tar and cron (alternatively with systemd and tar)
 - [ ] implement logging
 
