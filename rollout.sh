@@ -48,28 +48,27 @@ elif [ "$ID" = "ubuntu" ]; then
 	fi
 fi
 
+# 3. install and run apache2
+# 4. install python3
+# 5. install and run ssh
 if [[ "$ID" == "ubuntu" || "$ID" == "debian" ]]; then
 	# 2. update package manager
 	sudo apt update && sudo apt upgrade -y
 	sudo apt install -y apache2 python3-{pip,venv} ssh neovim git fish
 elif [ "$ID" = "fedora" ]; then
 	dnf check-update
-	sudo dnf install -y fish apache2
+	sudo dnf install -y apache2 python3 neovim git fish openssh-server && sudo systemctl enable --now sshd
 
 elif [ "$ID" = "opensuse" ]; then
 	sudo zypper refresh
-	sudo zypper install fish
+	sudo zypper install apache2 python neovim git fish openssh && sudo systemctl enable --now sshd.service
 
 elif [ "$ID_LIKE" = "arch" ]; then
-	sudo pacman -Sy fish
+	sudo pacman -Syu apache python neovim git fish openssh && sudo systemctl enable --now sshd
 
 fi
 
 ssh-keygen -t ed25519 # will require manual imput, to fix
 chsh -s /bin/fish
-
-# 3. install and run apache2
-# 4. install python3
-# 5. install and run ssh
 
 # minimum 10 actions in total, including installation of everything needed for other tasks
