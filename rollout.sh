@@ -3,7 +3,7 @@
 . /etc/os-release
 
 # 1. check if backports repo enabled and enable if not
-if [[ "$ID" = "ubuntu" && "VERSION_ID" = "24.04" ]]; then
+if [[ "$ID" = "ubuntu" && "$VERSION_ID" = "24.04" ]]; then
 	if grep -qE '^Suites: noble noble-updates noble-backports' /etc/apt/sources.list.d/ubuntu.sources; then
 		echo "The 'backports' repository is enabled already."
 	else
@@ -22,7 +22,7 @@ fi
 
 # install fish
 if [ "$ID" = "debian" ]; then
-	if [ "VERSION_ID" = "12" ]; then
+	if [ "$VERSION_ID" = "12" ]; then
 		echo Debian 12 detected, adding corresponding Fish repo
 		echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_12/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
 		curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_12/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg >/dev/null
