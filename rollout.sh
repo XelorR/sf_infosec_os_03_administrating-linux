@@ -26,11 +26,11 @@ if [ "$ID" = "debian" ]; then
 		echo Debian 12 detected, adding corresponding Fish repo
 		echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_12/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
 		curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_12/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg >/dev/null
-	elif [ "VERSION_ID" = "11" ]; then
+	elif [ "$VERSION_ID" = "11" ]; then
 		echo Debian 11 detected, adding corresponding Fish repo
 		echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_11/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
 		curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_11/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg >/dev/null
-	elif [ "VERSION_ID" = "10" ]; then
+	elif [ "$VERSION_ID" = "10" ]; then
 		echo Debian 10 detected, adding corresponding Fish repo
 		echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_10/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
 		curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_10/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg >/dev/null
@@ -38,7 +38,7 @@ if [ "$ID" = "debian" ]; then
 	sudo apt update
 	sudo apt install -y fish
 elif [ "$ID" = "ubuntu" ]; then
-	if [ "VERSION_ID" = "24.04" ]; then
+	if [ "$VERSION_ID" = "24.04" ]; then
 		echo Ubuntu Noble already contains fresh-enough Fish Shell
 	else
 		echo Outdated Ubuntu detected, adding Fish ppa
