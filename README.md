@@ -3,7 +3,7 @@
 ## todo
 
 - [x] run apache
-- [ ] install and enable ftp
+- [ ] install and enable ftp + ssl
 - [ ] install and enable window manager and rdp
 - [ ] implement backup with tar and cron (alternatively with systemd and tar)
 - [ ] implement logging
@@ -21,7 +21,7 @@ SSH will be enabled, then You will be able to connect:
 If backports block commented by some reason, backports.sources will be created in /etc/apt/sources.list.d/
 ![sources add](./assets/sources-list.png)
 
-Apache will be automatickly enabled:
+Apache will be automatically enabled:
 ![apache is running](./assets/apache-is-running.png)
 
 ## [Backup](./backup.sh)

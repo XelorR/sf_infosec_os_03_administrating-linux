@@ -5,6 +5,7 @@ BACKUP_DIR="/archive"
 SSH_CONFIG="/etc/ssh/sshd_config"
 RDP_CONFIG=""                 # Replace with RDP configuration file path if it exists
 FTP_CONFIG="/etc/vsftpd.conf" # Replace with FTP configuration file path if it exists
+SSL_KEYS="/etc/ssl"
 LOGS="/var/log"
 HOME_DIR="/home/$USER"
 
@@ -24,7 +25,7 @@ fi
 TIMESTAMP=$(date +%Y-%m-%d)
 
 # Create the backup. If repeated during the same day, save incremently
-tar cpNf "$BACKUP_DIR/backup-$TIMESTAMP.tar" --directory / $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS
+tar cpNf "$BACKUP_DIR/backup-$TIMESTAMP.tar" --directory / $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS $SSL_KEYS
 
 # to do it conditionally from the script
 # crontab -e
