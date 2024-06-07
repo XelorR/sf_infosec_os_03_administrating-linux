@@ -8,13 +8,14 @@ if [[ "$ID" = "ubuntu" && "$VERSION_ID" = "24.04" ]]; then
 		echo "The 'backports' repository is enabled already."
 	else
 		echo "The 'backports' repository is not enabled, adding."
-		sudo cat <<EOF >/etc/apt/sources.list.d/backports.sources
+		cat <<EOF >~/backports.sources
 Types: deb
 URIs: http://archive.ubuntu.com/ubuntu
 Suites: noble noble-updates noble-backports
 Components: main universe restricted multiverse
 Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 EOF
+		sudo mv ~/backports.sources /etc/apt/sources.list.d/backports.sources
 	fi
 else
 	echo "In 'backports adding' context, only Ubuntu Noble supported."
