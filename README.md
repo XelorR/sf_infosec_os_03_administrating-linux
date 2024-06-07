@@ -5,7 +5,8 @@
 - [x] run apache
 - [ ] install and enable ftp + ssl
 - [ ] install and enable window manager and rdp
-- [ ] implement backup with tar and cron (alternatively with systemd and tar)
+- [x] implement backup with tar
+- [ ] implement cron (alternatively with systemd and tar)
 - [ ] implement logging
 
 ## [Rollout](./rollout.sh)
@@ -15,14 +16,24 @@
 curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/rollout.sh | bash -
 ```
 
-SSH will be enabled, then You will be able to connect:
-![ssh - login successful](./assets/ssh-login-successful.png)
-
-If backports block commented by some reason, backports.sources will be created in /etc/apt/sources.list.d/
+It will check if backports enabled and enable if not. If backports block commented by some reason, backports.sources will be created in /etc/apt/sources.list.d/
 ![sources add](./assets/sources-list.png)
 
-Apache will be automatically enabled:
+Then it will update the system and install some packages, including required (python, apache, ssh)
+
+SSH will be enabled as required, then You will be able to connect:
+![ssh - login successful](./assets/ssh-login-successful.png)
+
+Apache will be enabled and launched:
 ![apache is running](./assets/apache-is-running.png)
+
+Bonus 5 features:
+
+1. generate ssh key if not generated
+2. latest version of fish shell, depending on OS
+3. enabling zsh as default shell for current user
+4. ...
+5. ...
 
 ## [Backup](./backup.sh)
 
