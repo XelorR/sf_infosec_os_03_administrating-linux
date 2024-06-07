@@ -5,7 +5,7 @@ BACKUP_DIR="/archive"
 SSH_CONFIG="/etc/ssh/sshd_config"
 RDP_CONFIG=""                 # Replace with RDP configuration file path if it exists
 FTP_CONFIG="/etc/vsftpd.conf" # Replace with FTP configuration file path if it exists
-SSL_KEYS="/etc/ssl"
+SSL_KEYS="/etc/ssl"           # as part of ftp configuration
 LOGS="/var/log"
 HOME_DIR="/home/$USER"
 
