@@ -54,16 +54,16 @@ if [[ "$ID" == "ubuntu" || "$ID" == "debian" ]]; then
 	sudo apt update && sudo apt upgrade -y
 	sudo apt install -y apache2 python3-{pip,venv} ssh neovim git fish zsh
 elif [ "$ID" = "fedora" ]; then
+	# exact packages are not tested! specified here as conditional example! everything was tested on ubuntu VM only!
 	dnf check-update
 	sudo dnf install -y apache2 python3 neovim git fish openssh-server zsh && sudo systemctl enable --now sshd
-
 elif [ "$ID" = "opensuse" ]; then
+	# exact packages are not tested! specified here as conditional example! everything was tested on ubuntu VM only!
 	sudo zypper refresh
 	sudo zypper install apache2 python neovim git fish openssh zsh && sudo systemctl enable --now sshd.service
-
 elif [ "$ID_LIKE" = "arch" ]; then
+	# exact packages are not tested! specified here as conditional example! everything was tested on ubuntu VM only!
 	sudo pacman -Syu apache python neovim git fish openssh zsh && sudo systemctl enable --now sshd
-
 fi
 
 # generate key if not exists
