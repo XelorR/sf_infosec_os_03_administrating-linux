@@ -43,8 +43,6 @@ elif [ "$ID" = "ubuntu" ]; then
 	else
 		echo Outdated Ubuntu detected, adding Fish ppa
 		sudo apt-add-repository ppa:fish-shell/release-3
-		sudo apt update
-		sudo apt install -y fish
 	fi
 fi
 
@@ -54,17 +52,17 @@ fi
 if [[ "$ID" == "ubuntu" || "$ID" == "debian" ]]; then
 	# 2. update package manager
 	sudo apt update && sudo apt upgrade -y
-	sudo apt install -y apache2 python3-{pip,venv} ssh neovim git fish
+	sudo apt install -y apache2 python3-{pip,venv} ssh neovim git fish zsh
 elif [ "$ID" = "fedora" ]; then
 	dnf check-update
-	sudo dnf install -y apache2 python3 neovim git fish openssh-server && sudo systemctl enable --now sshd
+	sudo dnf install -y apache2 python3 neovim git fish openssh-server zsh && sudo systemctl enable --now sshd
 
 elif [ "$ID" = "opensuse" ]; then
 	sudo zypper refresh
-	sudo zypper install apache2 python neovim git fish openssh && sudo systemctl enable --now sshd.service
+	sudo zypper install apache2 python neovim git fish openssh zsh && sudo systemctl enable --now sshd.service
 
 elif [ "$ID_LIKE" = "arch" ]; then
-	sudo pacman -Syu apache python neovim git fish openssh && sudo systemctl enable --now sshd
+	sudo pacman -Syu apache python neovim git fish openssh zsh && sudo systemctl enable --now sshd
 
 fi
 
@@ -72,6 +70,6 @@ fi
 if [ ! -f ~/.ssh/id_ed25519.pub ]; then
 	ssh-keygen -t ed25519
 fi
-sudo sed -i "s|^\($USER.*\)/bin/bash|\1/bin/fish|" /etc/passwd # changing default shell to fish for current user
+sudo sed -i "s|^\($USER.*\)/bin/bash|\1/bin/zsh|" /etc/passwd # changing default shell to fish for current user
 
 # minimum 10 actions in total, including installation of everything needed for other tasks
