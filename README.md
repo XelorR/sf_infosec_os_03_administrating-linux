@@ -18,12 +18,18 @@ curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-li
 SSH will be enabled, then You will be able to connect:
 ![ssh - login successful](./assets/ssh-login-successful.png)
 
-if backports block commented by some reason, backports.sources will be created in /etc/apt/sources.list.d/
+If backports block commented by some reason, backports.sources will be created in /etc/apt/sources.list.d/
 ![sources add](./assets/sources-list.png)
 
 Apache will be automatickly enabled:
 ![apache is running](./assets/apache-is-running.png)
 
 ## [Backup](./backup.sh)
+
+This script will place itself on server add itself to cron and run itself:
+```bash
+# run directly form server:
+curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/backup.sh | bash -
+```
 
 ## [Logging](./setup-logging.sh)
