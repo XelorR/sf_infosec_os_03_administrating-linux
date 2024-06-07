@@ -26,7 +26,7 @@ Apache will be automatically enabled:
 
 ## [Backup](./backup.sh)
 
-This script will place itself on server add itself to cron and run itself:
+This script will place itself to the server, make itself executable, add itself to cron and then run itself for a first time:
 ```bash
 # run directly form server:
 curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/backup.sh | bash -
