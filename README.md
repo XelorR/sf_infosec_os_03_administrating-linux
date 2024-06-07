@@ -2,7 +2,7 @@
 
 ## todo
 
-- [ ] run apache
+- [x] run apache
 - [ ] implement backup with tar and cron (alternatively with systemd and tar)
 - [ ] implement logging
 
@@ -18,6 +18,9 @@ SSH will be enabled, then You will be able to connect:
 
 if backports block commented by some reason, backports.sources will be created in /etc/apt/sources.list.d/
 ![sources add](./assets/sources-list.png)
+
+Apache will be automatickly enabled:
+![apache is running](./assets/apache-is-running.png)
 
 ## [Backup](./backup.sh)
 
