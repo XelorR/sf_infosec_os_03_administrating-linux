@@ -53,18 +53,18 @@ fi
 if [[ "$ID" == "ubuntu" || "$ID" == "debian" ]]; then
 	# 2. update package manager
 	sudo apt update && sudo apt upgrade -y
-	sudo apt install -y apache2 python3-{pip,venv} ssh neovim git fish zsh
+	sudo apt install -y apache2 python3-{pip,venv} ssh neovim git fish zsh && sudo systemctl enable apache2
 elif [ "$ID" = "fedora" ]; then
 	# exact packages are not tested! specified here as conditional example! everything was tested on ubuntu VM only!
 	dnf check-update
-	sudo dnf install -y apache2 python3 neovim git fish openssh-server zsh && sudo systemctl enable --now sshd
+	sudo dnf install -y apache2 python3 neovim git fish openssh-server zsh && sudo systemctl enable --now sshd && sudo systemctl enable apache2
 elif [ "$ID" = "opensuse" ]; then
 	# exact packages are not tested! specified here as conditional example! everything was tested on ubuntu VM only!
 	sudo zypper refresh
-	sudo zypper install apache2 python neovim git fish openssh zsh && sudo systemctl enable --now sshd.service
+	sudo zypper install apache2 python neovim git fish openssh zsh && sudo systemctl enable --now sshd.service && sudo systemctl enable apache2
 elif [ "$ID_LIKE" = "arch" ]; then
 	# exact packages are not tested! specified here as conditional example! everything was tested on ubuntu VM only!
-	sudo pacman -Syu apache python neovim git fish openssh zsh && sudo systemctl enable --now sshd
+	sudo pacman -Syu apache python neovim git fish openssh zsh && sudo systemctl enable --now sshd && sudo systemctl enable apache2
 fi
 
 # generate key if not exists
