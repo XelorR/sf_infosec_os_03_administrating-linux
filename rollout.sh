@@ -68,7 +68,10 @@ elif [ "$ID_LIKE" = "arch" ]; then
 
 fi
 
-ssh-keygen -t ed25519 # will require manual imput, to fix
-chsh -s /bin/fish
+# generate key if not exists
+if [ ! -f ~/.ssh/id_ed25519.pub ]; then
+	ssh-keygen -t ed25519
+fi
+sudo sed -i "s|^\($USER.*\)/bin/bash|\1/bin/fish|" /etc/passwd # changing default shell to fish for current user
 
 # minimum 10 actions in total, including installation of everything needed for other tasks
