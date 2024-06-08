@@ -28,8 +28,8 @@ SSH will be enabled as required, then You will be able to connect:
 Apache will be enabled and launched:
 ![apache is running](./assets/apache-is-running.png)
 
-Xrdp setupped, GUI also installed to server:
-![xrdp works](./assets/xrdp-to-vm-works.png)
+Xrdp will be setupped, GUI (xfce4) will be also installed to the server by my script:
+![xrdp works and connectable](./assets/xrdp-to-vm-works.png)
 
 Bonus 5 features:
 
