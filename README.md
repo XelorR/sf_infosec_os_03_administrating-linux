@@ -1,5 +1,7 @@
 # OS 03. Administrating GNU Linux
 
+> Homework for MIFI/SF InfoSec courses
+
 ## todo
 
 - [x] run apache
