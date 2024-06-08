@@ -4,13 +4,14 @@
 
 - [x] run apache
 - [ ] install and enable ftp + ssl
-- [ ] install and enable window manager and rdp
+- [x] install and enable window manager and rdp
 - [x] implement backup with tar
 - [ ] implement cron (alternatively with systemd and tar)
 - [ ] implement logging
 
 ## [Rollout](./rollout.sh)
 
+Everything specified in this section configured automatically just running this from server:
 ```bash
 # run directly form server:
 curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/rollout.sh | bash -
@@ -26,6 +27,9 @@ SSH will be enabled as required, then You will be able to connect:
 
 Apache will be enabled and launched:
 ![apache is running](./assets/apache-is-running.png)
+
+Xrdp setupped, GUI also installed to server:
+![xrdp works](./assets/xrdp-to-vm-works.png)
 
 Bonus 5 features:
 
