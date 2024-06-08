@@ -3,7 +3,7 @@
 # Set variables
 BACKUP_DIR="/archive"
 SSH_CONFIG="/etc/ssh/sshd_config"
-RDP_CONFIG=""                 # Replace with RDP configuration file path if it exists
+RDP_CONFIG="/etc/xrdp"        # Replace with RDP configuration file path if it exists
 FTP_CONFIG="/etc/vsftpd.conf" # Replace with FTP configuration file path if it exists
 SSL_KEYS="/etc/ssl"           # as part of ftp configuration
 LOGS="/var/log"
