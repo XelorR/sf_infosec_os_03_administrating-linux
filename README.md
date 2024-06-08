@@ -32,8 +32,9 @@ Bonus 5 features:
 1. generate ssh key if not generated
 2. latest version of fish shell, depending on OS
 3. enabling zsh as default shell for current user
-4. ...
-5. ...
+4. tmux installed and simple function added to simplify it's usage
+5. .zshrc added
+6. lf file manager downloaded and added to the PATH
 
 ## [Backup](./backup.sh)
 
