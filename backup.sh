@@ -20,16 +20,11 @@ sudo mv $HOME_DIR/backup.sh $BACKUP_DIR/backup.sh                               
 sudo chmod +x $BACKUP_DIR/backup.sh                                                                                         # setup
 
 # Create a timestamp for the backup file
-TIMESTAMP=$(date +%Y-%m-%d)
+TIMESTAMP=$(date +%Y-%m-%d_%H%M%S)
 
 # Create the backup. If repeated during the same day, save incremently
-if [ ! -f "$BACKUP_DIR/backup-$TIMESTAMP.tar" ]; then
-	cd /
-	tar cpf "$BACKUP_DIR/backup-$TIMESTAMP.tar" --exclude="$HOME_DIR/.*" $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS $SSL_KEYS
-else
-	cd /
-	tar cpNf "$BACKUP_DIR/backup-$TIMESTAMP.tar" --exclude="$HOME_DIR/.*" $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS $SSL_KEYS
-fi
+cd /
+tar cpf "$BACKUP_DIR/backup-$TIMESTAMP.tar" --exclude="$HOME_DIR/.*" $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS $SSL_KEYS
 
 # Add cron job if not added # setup
 if ! sudo crontab -l | grep -q '30 18 \* \* 5 '$BACKUP_DIR'/backup.sh'; then # setup
