@@ -28,6 +28,9 @@ TIMESTAMP=$(date +%Y-%m-%d)
 tar cpNf "$BACKUP_DIR/backup-$TIMESTAMP.tar" --directory / $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS $SSL_KEYS
 
 # Add cron job if not added
-if ! sudo grep -q '30 18 * * 5 $BACKUP_DIR/backup.sh' /var/spool/cron/crontabs/root; then        # setup
-	echo "30 18 * * 5 $BACKUP_DIR/backup.sh" | sudo tee -a /var/spool/cron/crontabs/root >/dev/null # setup
-fi                                                                                               # setup
+if ! sudo crontab -l | grep -q '30 18 * * 5 $BACKUP_DIR/backup.sh'; then # setup
+	sudo crontab -l | {                                                     # setup
+		cat                                                                    # setup
+		echo "30 18 * * 5 $BACKUP_DIR/backup.sh"                               # setup
+	} | sudo crontab -                                                      # setup
+fi                                                                       # setup
