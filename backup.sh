@@ -27,7 +27,7 @@ TIMESTAMP=$(date +%Y-%m-%d)
 # Create the backup. If repeated during the same day, save incremently
 tar cpNf "$BACKUP_DIR/backup-$TIMESTAMP.tar" --directory / $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS $SSL_KEYS
 
-# to do it conditionally from the script
-# crontab -e
-# Minute Hour Day Month Weekday
-# 30 18 * * 5 $BACKUP_DIR/backup.sh
+# add cron job if not added
+if ! sudo grep -q '30 18 * * 5 $BACKUP_DIR/backup.sh' /var/spool/cron/crontabs/root; then
+	echo "30 18 * * 5 $BACKUP_DIR/backup.sh" | sudo tee -a /var/spool/cron/crontabs/root >/dev/null
+fi
