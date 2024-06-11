@@ -47,7 +47,7 @@ Bonus 5 features:
 This script will place itself to the server, make itself executable, add itself to cron and then run itself for a first time:
 ```bash
 # run directly form server:
-curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/backup.sh | sed '/\ttar/d' | bash -
+curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/backup.sh | sed '/^tar/d' | bash -
 ```
 
 ## [Logging](./setup-logging.sh)
