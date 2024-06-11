@@ -9,10 +9,10 @@ SSL_KEYS="/etc/ssl" # as part of ftp configuration
 LOGS="/var/log"
 HOME_DIR="/home/$USER"
 
-# Check if backup directory exists, create if not
+# Check if backup directory exists, create if not # setup
 sudo mkdir -p $BACKUP_DIR # setup
 
-# Download, save and make this script executable, if not in /archive dir
+# Download, save and make this script executable, if not in /archive dir # setup
 curl -sL https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/backup.sh >$HOME_DIR/backup.sh # setup
 sed -i '/# setup$/d' $HOME_DIR/backup.sh                                                                                    # setup
 sed -i 's|\$USER|'"$USER"'|' $HOME_DIR/backup.sh                                                                            # setup
@@ -24,8 +24,10 @@ TIMESTAMP=$(date +%Y-%m-%d)
 
 # Create the backup. If repeated during the same day, save incremently
 if [ ! -f "$BACKUP_DIR/backup-$TIMESTAMP.tar" ]; then
+	echo
 	tar cpf "$BACKUP_DIR/backup-$TIMESTAMP.tar" --directory / $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS $SSL_KEYS
 else
+	echo
 	tar cpNf "$BACKUP_DIR/backup-$TIMESTAMP.tar" --directory / $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS $SSL_KEYS
 fi
 
