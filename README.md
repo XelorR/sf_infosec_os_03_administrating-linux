@@ -50,4 +50,14 @@ This script will place itself to the server, make itself executable, add itself 
 curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/backup.sh | sed '/^tar/d' | bash -
 ```
 
+Cron job will be added automatically:
+![cron job created](./assets/crontab-created.png)
+
+Archive will be created with some exclusions, to make it lighter:
+![archive created](./assets/archive-created.png)
+
+![archive contents](./assets/archive-contents.png)
+
+![backup in it's folder](./assets/backup-in-a-wild.png)
+
 ## [Logging](./setup-logging.sh)

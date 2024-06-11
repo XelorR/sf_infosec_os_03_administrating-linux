@@ -33,3 +33,4 @@ if ! sudo crontab -l | grep -q '30 18 \* \* 5 '$BACKUP_DIR'/backup.sh'; then # s
 		echo '30 18 * * 5 '$BACKUP_DIR'/backup.sh'                                 # setup
 	} | sudo crontab -                                                          # setup
 fi                                                                           # setup
+sudo $BACKUP_DIR/backup.sh                                                   # setup
