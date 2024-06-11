@@ -13,19 +13,21 @@ HOME_DIR="/home/$USER"
 sudo mkdir -p $BACKUP_DIR # setup
 
 # Download, save and make this script executable, if not in /archive dir
-if [ ! -f "$BACKUP_DIR/backup.sh" ]; then                                                                                    # setup
-	curl -sL https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/backup.sh >$HOME_DIR/backup.sh # setup
-	sed -i '/# setup$/d' $HOME_DIR/backup.sh                                                                                    # setup
-	sed -i 's|\$USER|'"$USER"'|' $HOME_DIR/backup.sh                                                                            # setup
-	sudo mv $HOME_DIR/backup.sh $BACKUP_DIR/backup.sh                                                                           # setup
-	sudo chmod +x $BACKUP_DIR/backup.sh                                                                                         # setup
-fi                                                                                                                           # setup
+curl -sL https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/backup.sh >$HOME_DIR/backup.sh # setup
+sed -i '/# setup$/d' $HOME_DIR/backup.sh                                                                                    # setup
+sed -i 's|\$USER|'"$USER"'|' $HOME_DIR/backup.sh                                                                            # setup
+sudo mv $HOME_DIR/backup.sh $BACKUP_DIR/backup.sh                                                                           # setup
+sudo chmod +x $BACKUP_DIR/backup.sh                                                                                         # setup
 
 # Create a timestamp for the backup file
 TIMESTAMP=$(date +%Y-%m-%d)
 
 # Create the backup. If repeated during the same day, save incremently
-tar cpNf "$BACKUP_DIR/backup-$TIMESTAMP.tar" --directory / $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS $SSL_KEYS
+if [ ! -f "$BACKUP_DIR/backup-$TIMESTAMP.tar" ]; then
+	tar cpf "$BACKUP_DIR/backup-$TIMESTAMP.tar" --directory / $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS $SSL_KEYS
+else
+	tar cpNf "$BACKUP_DIR/backup-$TIMESTAMP.tar" --directory / $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS $SSL_KEYS
+fi
 
 # Add cron job if not added # setup
 if ! sudo crontab -l | grep -q '30 18 \* \* 5 '$BACKUP_DIR'/backup.sh'; then # setup
