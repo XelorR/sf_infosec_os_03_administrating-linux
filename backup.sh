@@ -25,10 +25,10 @@ TIMESTAMP=$(date +%Y-%m-%d)
 # Create the backup. If repeated during the same day, save incremently
 if [ ! -f "$BACKUP_DIR/backup-$TIMESTAMP.tar" ]; then
 	echo
-	tar cpf "$BACKUP_DIR/backup-$TIMESTAMP.tar" --directory / $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS $SSL_KEYS
+	tar cpf "$BACKUP_DIR/backup-$TIMESTAMP.tar" --directory / --exclude="$HOME_DIR/.*" $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS $SSL_KEYS
 else
 	echo
-	tar cpNf "$BACKUP_DIR/backup-$TIMESTAMP.tar" --directory / $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS $SSL_KEYS
+	tar cpNf "$BACKUP_DIR/backup-$TIMESTAMP.tar" --directory / --exclude="$HOME_DIR/.*" $HOME_DIR $SSH_CONFIG $RDP_CONFIG $FTP_CONFIG $LOGS $SSL_KEYS
 fi
 
 # Add cron job if not added # setup
