@@ -3,6 +3,8 @@
 # create backup script
 sudo mkdir -p /archive
 sudo cat <<EOF >/archive/backup.sh
+#!/bin/bash
+
 cd /
 tar cpf "/archive/backup-\$(date +%Y-%m-%d_%H%M%S).tar" --exclude="\$HOME/.*" /etc/ssh/sshd_config /etc/xrdp /etc/vsftpd.conf /etc/ssh/sshd_config /var/log "\$HOME"
 EOF
