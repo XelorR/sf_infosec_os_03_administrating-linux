@@ -5,11 +5,10 @@ sudo apt update
 sudo apt install -y logwatch mailutils
 
 # prepare email template and logwatch command, save as script
-cat <<EOF >$HOME/logwatch.sh
-logwatch --detail Med --mailto root --service all --range today
-EOF
 sudo mkdir -p /archive
-sudo mv $HOME/logwatch.sh /archive/
+sudo cat <<EOF >/archive/logwatch.sh
+logwatch --detail Med --mailto petr --service sshd,vsftpd,xrdp --range yesterday
+EOF
 sudo chmod +x /archive/logwatch.sh
 
 # schedule cron job
@@ -24,4 +23,4 @@ fi
 /archive/logwatch.sh
 
 # check mail for screenshot
-# sudo mail
+# mail
