@@ -11,7 +11,7 @@
 - [ ] implement cron (alternatively with systemd and tar)
 - [ ] implement logging
 
-## [Rollout](./rollout.sh)
+## [Rollout](./baseline/rollout.sh)
 
 Everything specified in this section configured automatically just running this from server:
 ```bash
@@ -42,7 +42,7 @@ Bonus 5 features:
 5. .zshrc added
 6. lf file manager downloaded and added to the PATH
 
-## [Backup](./backup.sh)
+## [Backup](./baseline/backup.sh)
 
 This script will place itself to the server, make itself executable, add itself to cron and then run itself for a first time:
 ```bash
@@ -60,4 +60,4 @@ Archive will be created with some exclusions, to make it lighter:
 
 ![backup in it's folder](./assets/backup-in-a-wild.png)
 
-## [Logging](./setup-logging.sh)
+## [Logging](./baseline/logging.sh)
