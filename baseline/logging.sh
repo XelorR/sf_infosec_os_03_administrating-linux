@@ -6,7 +6,7 @@ sudo apt install -y logwatch mailutils
 
 # prepare email template and logwatch command, save as script
 sudo mkdir -p /archive
-sudo cat <<EOF >/archive/logwatch.sh
+sudo cat <<'EOF' >/archive/logwatch.sh
 #!/bin/bash
 
 logwatch --detail Med --mailto petr --service sshd,vsftpd,xrdp --range yesterday

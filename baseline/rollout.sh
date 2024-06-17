@@ -50,7 +50,7 @@ sudo apt install -y xfce4 xrdp
 echo xfce4-session >~/.xsession
 
 # 5. create .zshrc
-cat <<EOF >$HOME/.zshrc
+cat <<'EOF' >$HOME/.zshrc
 export PATH="$HOME/.local/bin:$PATH"
 
 alias l='ls -1A'

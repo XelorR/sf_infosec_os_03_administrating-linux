@@ -2,7 +2,7 @@
 
 # create backup script
 sudo mkdir -p /archive
-sudo cat <<EOF >/archive/backup.sh
+sudo cat <<'EOF' >/archive/backup.sh
 #!/bin/bash
 
 cd /
