@@ -16,7 +16,7 @@
 Everything specified in this section configured automatically just running this from server:
 ```bash
 # run directly form server:
-curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/rollout.sh | bash -
+curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/baseline/rollout.sh | bash -
 ```
 
 It will check if backports enabled and enable if not. If backports block commented by some reason, backports.sources will be created in /etc/apt/sources.list.d/
@@ -47,7 +47,7 @@ Bonus 5 features:
 This script will place itself to the server, make itself executable, add itself to cron and then run itself for a first time:
 ```bash
 # run directly form server:
-curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/backup.sh | sed '/^tar/d' | bash -
+curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/baseline/backup.sh | bash -
 ```
 
 Cron job will be added automatically:
