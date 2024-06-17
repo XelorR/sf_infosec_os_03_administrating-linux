@@ -61,3 +61,8 @@ Archive will be created with some exclusions, to make it lighter:
 ![backup in it's folder](./assets/backup-in-a-wild.png)
 
 ## [Logging](./baseline/logging.sh)
+
+```bash
+# run directly form server:
+curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/baseline/logging.sh | bash -
+```
