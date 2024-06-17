@@ -9,7 +9,7 @@ sudo mkdir -p /archive
 sudo cat <<'EOF' >/archive/logwatch.sh
 #!/bin/bash
 
-logwatch --detail Med --mailto petr --service sshd,vsftpd,xrdp --range yesterday
+logwatch --detail High --mailto petr --service vsftpd sshd xrdp --range yesterday
 EOF
 sudo chmod +x /archive/logwatch.sh
 
