@@ -2,15 +2,6 @@
 
 > Homework for MIFI/SF InfoSec courses
 
-## todo
-
-- [x] run apache
-- [ ] install and enable ftp + ssl
-- [x] install and enable window manager and rdp
-- [x] implement backup with tar
-- [ ] implement cron (alternatively with systemd and tar)
-- [ ] implement logging
-
 ## [Rollout](./baseline/rollout.sh)
 
 Everything specified in this section configured automatically just running this from server:
