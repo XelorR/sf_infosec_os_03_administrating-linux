@@ -4,7 +4,7 @@
 
 # check backports
 if [[ "$ID" = "ubuntu" && "$VERSION_ID" = "22.04" ]]; then
-	if grep -q 'deb http://ru.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse' /etc/apt/sources.list; then
+	if grep -q '^deb http://ru.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse' /etc/apt/sources.list; then
 		echo backports is enabled already
 	else
 		sudo echo 'deb http://ru.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse' >>/etc/apt/sources.list
