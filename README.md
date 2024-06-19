@@ -60,3 +60,6 @@ curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-li
 
 Cron job will be added:
 ![crontab added](./assets/crontab-contents.png)
+
+Email will be received with on cronjob/script run
+![mail](./assets/mail-form-logwatch)
