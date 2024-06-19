@@ -2,7 +2,7 @@
 
 > Homework for MIFI/SF InfoSec courses
 
-There are two folders: [babaseline](./baseline/) and [sophisticated](./sophisticated/). Please look at the baseline. Sophisticated contains some experiments I want to keep saved.
+There are two folders: [baseline](./baseline/) and [sophisticated](./sophisticated/). Please look at the baseline. Sophisticated contains some experiments I want to keep saved.
 
 ## [Rollout](./baseline/rollout.sh)
 
