@@ -17,7 +17,7 @@ It will check if backports enabled and enable if not. [Baseline](./baseline/roll
 
 Then it will update the system and install some packages, including required (python, apache, ssh)
 
-SSH will be enabled as required, key will be generated if not exists, then You will be able to connect:
+SSH will be enabled as required, key will be generated if not exists, then You will be able to copy id and connect:
 ![ssh - login successful](./assets/ssh-login-successful.png)
 
 Apache will be enabled and launched:
