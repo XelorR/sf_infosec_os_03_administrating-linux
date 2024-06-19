@@ -35,7 +35,7 @@ Bonus 5 features:
 
 ## [Backup](./baseline/backup.sh)
 
-This command will create backup script, create cron job and run it for a first time:
+This command will create backup script, enable cron job and run it for a first time:
 ```bash
 # run directly form server:
 curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/baseline/backup.sh | bash -
