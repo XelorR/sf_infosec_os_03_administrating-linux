@@ -2,6 +2,8 @@
 
 > Homework for MIFI/SF InfoSec courses
 
+There are two folders: [babaseline](./baseline/) and [sophisticated](./sophisticated/). Please look at the baseline. Sophisticated contains some experiments I want to keep saved.
+
 ## [Rollout](./baseline/rollout.sh)
 
 Everything specified in this section configured automatically just running this from server:
@@ -10,32 +12,30 @@ Everything specified in this section configured automatically just running this 
 curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/baseline/rollout.sh | bash -
 ```
 
-It will check if backports enabled and enable if not. If backports block commented by some reason, backports.sources will be created in /etc/apt/sources.list.d/
+It will check if backports enabled and enable if not. [Baseline](./baseline/rollout.sh) script works for **Ubuntu Jammy**, [sophisticated](./sophisticated/rollout.sh) is working new **Ubuntu Noble** syntax. Screenshot made for Noble, but there is no much difference, it works for Jammy also.
 ![sources add](./assets/sources-list.png)
 
 Then it will update the system and install some packages, including required (python, apache, ssh)
 
-SSH will be enabled as required, then You will be able to connect:
+SSH will be enabled as required, key will be generated if not exists, then You will be able to connect:
 ![ssh - login successful](./assets/ssh-login-successful.png)
 
 Apache will be enabled and launched:
 ![apache is running](./assets/apache-is-running.png)
 
-Xrdp will be setupped, GUI (xfce4) will be also installed to the server by my script:
-![xrdp works and connectable](./assets/xrdp-to-vm-works.png)
-
 Bonus 5 features:
 
-1. generate ssh key if not generated
-2. latest version of fish shell, depending on OS
-3. enabling zsh as default shell for current user
-4. tmux installed and simple function added to simplify it's usage
-5. .zshrc added
-6. lf file manager downloaded and added to the PATH
+1. latest **NeoVim** version will be downloaded, unpacked and symlinked
+2. latest **lf** file manager version will be found with curl and sed, then downloaded and unpacked
+3. zsh will be installed and set as user's default shell
+4. GUI (xfce4) will be installed to server, RDP will be configured to login to XFCE4
+![xrdp works and connectable](./assets/xrdp-to-vm-works.png)
+5. .zshrc will be created with some custom content
+
 
 ## [Backup](./baseline/backup.sh)
 
-This script will place itself to the server, make itself executable, add itself to cron and then run itself for a first time:
+This command will create backup script, create cron job and run it for a first time:
 ```bash
 # run directly form server:
 curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/baseline/backup.sh | bash -
@@ -53,6 +53,7 @@ Archive will be created with some exclusions, to make it lighter:
 
 ## [Logging](./baseline/logging.sh)
 
+This command will save logwatch command into script and add the cronjob, then run it for a first time:
 ```bash
 # run directly form server:
 curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/baseline/logging.sh | bash -
