@@ -21,7 +21,8 @@ sudo apt install -y ssh apache2 python3-{pip,venv} zsh rsync fzf ripgrep
 if [ ! -f $HOME/.ssh/id_ed25519.pub ]; then
 	ssh-keygen -t ed25519 -N ''
 fi
-sudo systemctl enable --now sshd
+#sudo systemctl enable --now sshd
+sudo systemctl restart sshd
 
 # additional 5 things
 # 1. install/reinstall latest NeoVim version
