@@ -19,7 +19,7 @@ sudo apt install -y ssh apache2 python3-{pip,venv} zsh rsync fzf ripgrep
 
 # gen key and enable ssh
 if [ ! -f $HOME/.ssh/id_ed25519.pub ]; then
-	ssh-keygen -t ed25519
+	ssh-keygen -t ed25519 -N ''
 fi
 sudo systemctl enable --now sshd
 
