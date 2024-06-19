@@ -6,11 +6,11 @@ sudo apt install -y logwatch mailutils
 
 # prepare email template and logwatch command, save as script
 sudo mkdir -p /archive
-sudo cat <<'EOF' >/archive/logwatch.sh
+sudo sh -c 'cat <<EOF >/archive/logwatch.sh
 #!/bin/bash
 
 logwatch --detail High --mailto petr --service vsftpd sshd xrdp --range yesterday
-EOF
+EOF'
 sudo chmod +x /archive/logwatch.sh
 
 # schedule cron job
