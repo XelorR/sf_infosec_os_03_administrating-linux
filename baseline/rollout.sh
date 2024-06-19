@@ -15,7 +15,7 @@ fi
 
 # update and install
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y ssh apache2 python3-{pip,venv} zsh rsync fzf ripgrep
+sudo apt install -y ssh apache2 python3-{pip,venv} zsh rsync fzf ripgrep tmux
 
 # gen key and enable ssh
 if [ ! -f $HOME/.ssh/id_ed25519.pub ]; then
