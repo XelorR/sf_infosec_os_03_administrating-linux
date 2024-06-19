@@ -12,7 +12,7 @@ Everything specified in this section configured automatically just running this 
 curl https://raw.githubusercontent.com/XelorR/sf_infosec_os_03_administrating-linux/main/baseline/rollout.sh | bash -
 ```
 
-It will check if backports enabled and enable if not. [Baseline](./baseline/rollout.sh) script works for **Ubuntu Jammy**, [sophisticated](./sophisticated/rollout.sh) is working for new **Ubuntu Noble** syntax. Screenshot made for Noble, but there is no much difference, it works for Jammy also.
+It will check if backports enabled and enable if not. [Baseline](./baseline/rollout.sh) script works for **Ubuntu Jammy**, [sophisticated](./sophisticated/rollout.sh) is working for new **Ubuntu Noble** syntax. Screenshot made for Noble, but there is no much difference, "baseline" script for Jammy is using similar approach for backpoert check, but a bit different syntax.
 ![sources add](./assets/sources-list.png)
 
 Then it will update the system and install some packages, including required (python, apache, ssh)
